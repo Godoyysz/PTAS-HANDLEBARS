@@ -6,18 +6,34 @@ const app = express()
 app.engine("handlebars" , exphbs.engine())
 app.set("view engine", "handlebars")
 
+const usuarios = [
+    {
+        nome: "godoyzona",
+        endereco: "aquele la"
+    },
+    {
+        nome: "davizao",
+        endereco: "do lado ali ó"
+    },
+    {
+        nome: "julianazona",
+        endereco: "a casa do café"
+    }
+]
+
 app.get("/",(req , res) =>{
-    res.render("home")
+    res.render("home", {usuarios})
 })
 
 app.get("/usuario/:id", (req , res)  => {
-    let nome = "Tiago Pires"
-    let img = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Color_Photographed_B-17E_in_Flight.jpg/800px-Color_Photographed_B-17E_in_Flight.jpg"
+    let usuario = {
+        nome: "maikao",
+        endereco: "lalala",
+        img: "https://cdn.awsli.com.br/2500x2500/2015/2015035/produto/127238225/12d64ea1df.jpg",
+    };
     res.render("usuario", {
-        nome,
+        usuario,
         id: req.params.id,
-        img,
-
     })
 })
 
@@ -28,6 +44,6 @@ app.get("/novo",(req , res) => {
 
 
 app.listen(8000, () => {
-    console.log("Rodando o Tiago Pipoca")
+    console.log("Rodando")
     console.log("http://localhost:8000/")
 })

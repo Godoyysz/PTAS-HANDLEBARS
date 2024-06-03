@@ -1,7 +1,17 @@
 <div class="card" style="width: 18rem;">
-  <img src="{{img}}" class="card-img-top" alt="...">
+  <img src="{{usuario.img}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{nome}}</h5>
+    <h1>Usuario {{usuario.nome}}</h1>
+
+<p>Id: {{id}}</p>
+
+{{#if usuario.endereco}}
+<p>Endereço: {{usuario.endereco}}</p>
+{{else}}
+<p>Não possui endereço</p>
+{{/if}}
+
     <p class="card-text">Id: {{id}}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
